@@ -2,7 +2,7 @@ FROM alpine:3.4
 MAINTAINER David Personette <dperson@gmail.com>
 
 # Install samba
-RUN apk add --no-cache samba bash && \
+RUN apk add --no-cache samba=4.4.5-r0 bash && \
     adduser -h /tmp -H -S smbuser && \
     rm -rf /tmp/*
 COPY samba.sh /usr/bin/
