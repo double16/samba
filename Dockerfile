@@ -28,3 +28,5 @@ VOLUME ["/etc/samba"]
 EXPOSE 137 139 445
 
 ENTRYPOINT ["samba.sh"]
+
+HEALTHCHECK CMD (nc -zv localhost 445 && nc -zv localhost 139) || exit 1
