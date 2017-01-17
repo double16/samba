@@ -7,6 +7,13 @@ machine:
 dependencies:
   pre:
     - sudo pip install docker-compose
+  override:
+    - if [[ -e ~/docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
+    - docker pull alpine:3.5
+    - mkdir -p ~/docker
+    - docker save alpine > ~/docker/image.tar
+  cache_directories:
+    - "~/docker"
 
 checkout:
   post:
