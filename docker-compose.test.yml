@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  samba:
+    build: .
+
+  sut:
+    build: test
+    links:
+      - samba
+    volumes:
+      - ./test/results:/results

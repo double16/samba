@@ -1,4 +1,4 @@
-FROM alpine:3.4
+FROM alpine:3.5
 MAINTAINER Patrick Double <pat@patdouble.com>
 
 ARG BUILD_DATE
@@ -6,7 +6,7 @@ ARG SOURCE_COMMIT
 ARG DOCKERFILE_PATH
 ARG SOURCE_TYPE
 
-ENV SAMBA_VERSION=4.4.5-r1
+ENV SAMBA_VERSION=4.5.3-r0
 
 LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.docker.dockerfile="$DOCKERFILE_PATH/Dockerfile" \
