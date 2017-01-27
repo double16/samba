@@ -6,7 +6,7 @@ ARG SOURCE_COMMIT
 ARG DOCKERFILE_PATH
 ARG SOURCE_TYPE
 
-ENV SAMBA_VERSION=4.5.3-r0
+ENV SAMBA_VERSION=4.5.4-r0
 
 LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.docker.dockerfile="$DOCKERFILE_PATH/Dockerfile" \

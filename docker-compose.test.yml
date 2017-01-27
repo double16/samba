@@ -1,8 +1,17 @@
 version: '2'
 
+volumes:
+  vol1:
+  vol2:
+
 services:
   samba:
     build: .
+    volumes:
+      - vol1:/vol1:ro
+      - vol2:/vol2
+    command:
+      -s "vol1;/vol1;yes;yes;yes" -s "vol2;/vol2;yes;yes;yes"
 
   sut:
     build: test
@@ -10,3 +19,5 @@ services:
       - samba
     volumes:
       - ./test/results:/results
+      - vol1:/vol1
+      - vol2:/vol2
