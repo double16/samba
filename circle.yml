@@ -9,7 +9,7 @@ dependencies:
     - sudo pip install docker-compose==1.9.0
   override:
     - if [[ -e ~/docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
-    - docker pull alpine:3.5
+    - docker pull alpine:3.6
     - mkdir -p ~/docker
     - docker save alpine > ~/docker/image.tar
   cache_directories:

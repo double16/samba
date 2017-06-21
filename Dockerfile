@@ -1,4 +1,4 @@
-FROM alpine:3.5
+FROM alpine:3.6
 MAINTAINER Patrick Double <pat@patdouble.com>
 
 ARG BUILD_DATE
@@ -6,13 +6,14 @@ ARG SOURCE_COMMIT
 ARG DOCKERFILE_PATH
 ARG SOURCE_TYPE
 
-ENV SAMBA_VERSION=4.5.4-r0
+ENV SAMBA_VERSION=4.6.4-r0
 
 LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.docker.dockerfile="$DOCKERFILE_PATH/Dockerfile" \
       org.label-schema.license="AGPL-3.0" \
       org.label-schema.name="Samba ${SAMBA_VERSION} docker container" \
       org.label-schema.url="https://github.com/double16/samba" \
+      org.label-schema.vendor="https://github.com/double16" \
       org.label-schema.vcs-ref=$SOURCE_COMMIT \
       org.label-schema.vcs-type="$SOURCE_TYPE" \
       org.label-schema.vcs-url="https://github.com/double16/samba.git"
