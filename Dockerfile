@@ -1,12 +1,11 @@
-FROM alpine:3.6
-MAINTAINER Patrick Double <pat@patdouble.com>
+FROM alpine:3.7
 
 ARG BUILD_DATE
 ARG SOURCE_COMMIT
 ARG DOCKERFILE_PATH
 ARG SOURCE_TYPE
 
-ENV SAMBA_VERSION=4.6.11-r0
+ENV SAMBA_VERSION=4.7.4-r0
 
 RUN apk add --no-cache samba=${SAMBA_VERSION} bash && \
     adduser -h /tmp -H -S smbuser && \
@@ -22,7 +21,8 @@ ENTRYPOINT ["samba.sh"]
 
 HEALTHCHECK CMD (nc -zv localhost 445 && nc -zv localhost 139) || exit 1
 
-LABEL org.label-schema.build-date=$BUILD_DATE \
+LABEL maintainer="Patrick Double <pat@patdouble.com>" \
+      org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.docker.dockerfile="$DOCKERFILE_PATH/Dockerfile" \
       org.label-schema.license="AGPL-3.0" \
       org.label-schema.name="Samba ${SAMBA_VERSION} docker container" \
