@@ -1,13 +1,13 @@
-FROM alpine:3.7
+FROM alpine:3.8
 
 ARG BUILD_DATE
 ARG SOURCE_COMMIT
 ARG DOCKERFILE_PATH
 ARG SOURCE_TYPE
 
-ENV SAMBA_VERSION=4.7.6-r0
+ENV SAMBA_VERSION=4.8.4-r0
 
-RUN apk add --no-cache samba=${SAMBA_VERSION} bash && \
+RUN apk add --no-cache samba=${SAMBA_VERSION} bash shadow && \
     adduser -h /tmp -H -S smbuser && \
     rm -rf /tmp/*
 COPY samba.sh /usr/bin/
